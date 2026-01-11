@@ -37,42 +37,41 @@ The dataset is clean, well-documented, and contains meaningful features for busi
 
 Key visualizations include:
 
-* **Bar plot:** Attrition rate
-* **Boxplot:** MonthlyIncome vs Attrition
-* **Countplot:** Attrition by Department
-* **Histogram:** Age distribution
+* **Boxplot:** Distance from home vs 
+* **Histogram:** Many ))
 * **Correlation heatmap:** Relationships among numeric variables
 
-**Insight examples:**
+**Insights:**
 
-* Employees with lower income or fewer years at the company tend to leave more often.
-* Certain departments show higher attrition rates.
-
+* The workers with low JobLevel, MonthlyIncome, YearAtCompany, and TotalWorkingYears are more likely to quit their jobs.
+* As it seems EnvironmentSatisfaction, JobSatisfaction, and RelationshipSatisfaction features don't have a big impact on the determination of Attrition of employees.
 
 ###  Machine Learning Models
 
-Two classification models were implemented:
-
-* **Logistic Regression**
-* **Decision Tree Classifier**
-
-**Evaluation metrics:**
-
-* Accuracy
-* Confusion matrix
-* Precision & Recall
+| Model               | Accuracy | Precision | Recall | Summary                                                                                                        |
+| ------------------- | -------- | --------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| Logistic Regression | 88.7%    | 76.9%     | 42.3%  | Best overall balance. Correctly predicts most cases, with good precision, but may miss some actual attritions. |
+| Decision Tree       | 75.1%    | 28.1%     | 35.2%  | Low performance. Many false positives and misses actual attritions. Not reliable.                              |
+| Random Forest       | 82.3%    | 36.0%     | 12.7%  | Poor recall. Overly cautious and misses most actual attritions. Needs tuning.                                  |
 
 **Findings:**
 
-* Logistic Regression performed better in terms of generalization and interpretability.
-* Decision Tree is simple and visual, but prone to overfitting.
+* Logistic Regression is the best model overall in terms of balanced performance.
+* Precision vs Recall trade-off: If the goal is to catch as many positives as possible (e.g., churners), Logistic Regression might need tuning, such as adjusting the classification threshold or using resampling to balance classes.
+* Decision Tree and Random Forest are underperforming, likely due to overfitting, class imbalance, or insufficient hyperparameter tuning
 
+** Recommendation:**
+
+* Stick with Logistic Regression for now, but try improving recall using:
+* Threshold adjustment
+* Ensemble methods or tuned hyperparameters
+* Avoid using Decision Tree or Random Forest without tuning, as they are less reliable for this dataset.
 
 ### Bonus Features
 
 * Feature engineering for derived metrics
-* Extra visualizations
+* Interactive visualizations
+* Recommendations
 
-If you want, I can also **write a shorter “student-friendly” version** of this README that looks even more natural for GitHub and avoids looking AI-generated—perfect for a submission.
-
-Do you want me to do that?
+Sorry for the delay
+May the 4th be with you))
